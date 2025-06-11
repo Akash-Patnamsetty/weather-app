@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            background-color: rgb(4, 4, 21);
+            text-transform: capitalize;
+            align-items: center;
+            color: whitesmoke;   
+        }
+        .a1{
+            border: 2px solid rgb(240, 233, 233);
+            background-color:transparent;
+            width: 50em;
+            height:30em;
+            position:fixed;
+            top: 10em;
+            left: 25em;
+            border-radius: 1%;
+            box-shadow: 5px 10px 10px  silver;
+            display: grid;
+        }
+        form{
+            margin-left: 35%;
+        }
+        input{
+            height: 40px;
+            border: 2px solid white;
+            border-radius: 5px;
+            width: 40%;
+            font-size: 20px;
+            color: whitesmoke;
+            background-color: transparent;
+        }
+        button{
+            height: 45px;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 13%;
+            color: whitesmoke;
+            font-weight: 800;
+        }
+        button:hover{
+            color: green;
+            background-color: springgreen;
+        }
+        h1{
+            text-align: center;
+            color: wheat;
+            text-shadow: 12px 6px 30px gold;
+            text-decoration: underline;
+        }
+        h2{
+            text-align: center;
+            color:goldenrod;
+            text-shadow: 12px 6px 30px rgb(168, 166, 160);
+            margin-top: 40px;
+            font-size: 40px;
+        }
+        .a3{
+            display: flex;
+            justify-content: space-around;
+            font-size: 30px;
+        }
+        .a4{
+            display: flex;
+            justify-content: space-around;
+            font-size: 30px;
+        }
+        img{
+            height: 200px;
+            width:auto;
+        }
+        label{
+            color: whitesmoke;
+        }
+        h6{
+            text-align: center;
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>weather app</h1>
+<form method="post">{% csrf_token  %}
+    <input type="text" placeholder="enter the city name" name="city" autocomplete="off">&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit">search</button>
+</form>
+<div class="a1">
+    {% if error %}
+    <h2><label for="">city:</label>{{error}}</h2>
+     <div class="a3">
+       <h3>temp: --------------- </h3>
+        <img src="https://openweathermap.org/img/wn/{{weather.icon}}@2x.png" alt=""> 
+    </div>
+    <div class="a4">
+        <h4>date:----------</h4>
+        <h5>discription:--------------</h5> 
+    </div>
+    {% else %}
+    <h2><label for="">city:</label>{{weather.city}}</h2>
+      
+    <div class="a3">
+       <h3>temp: {{weather.temp}}'C</h3>
+        <img src="https://openweathermap.org/img/wn/{{weather.icon}}@2x.png" alt=""> 
+    </div>
+    <div class="a4">
+        <h4>date:{{weather.time}}</h4>
+        <h5>discription:{{weather.discription}}</h5> 
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
+
