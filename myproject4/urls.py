@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.urls import path
 from myapp4 import views
 
+import requests
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",views.home,name="home"),

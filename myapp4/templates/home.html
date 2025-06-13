@@ -48,6 +48,7 @@
         button:hover{
             color: green;
             background-color: springgreen;
+            transition: 1s;
         }
         h1{
             text-align: center;
@@ -84,6 +85,88 @@
             color: red;
             font-size: 20px;
         }
+
+        @media (min-width:420px) {
+             .a1{
+            border: 2px solid rgb(240, 233, 233);
+            background-color:transparent;
+            width: 80%;
+            height:30em;
+            position:fixed;
+            top: 10em;
+            left: 10%;
+            border-radius: 1%;
+            box-shadow: 5px 10px 10px  silver;
+            display: grid;
+        }
+        form{
+            margin-left: 8%;
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 35px;
+        }
+        input{
+            height: 25px;
+            border: 2px solid white;
+            border-radius: 5px;
+            width: 40%;
+            font-size: 12px;
+            color: whitesmoke;
+            background-color: transparent;
+            font-weight: 800;
+        }
+        button{
+            height: 25px;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 18%;
+            color: whitesmoke;
+            font-weight: 800;
+        }
+        button:hover{
+            color: green;
+            background-color: springgreen;
+        }
+
+        h1{
+            text-align: center;
+            color: wheat;
+            text-shadow: 12px 6px 30px gold;
+            text-decoration: underline;
+        }
+        h2{
+            text-align: center;
+            color:goldenrod;
+            text-shadow: 12px 6px 30px rgb(168, 166, 160);
+            margin-top: 30px;
+            font-size: 30px;
+        }
+        .a3{
+            display: flex;
+            justify-content: space-around;
+            font-size: 20px;
+        }
+        .a4{
+            display: flex;
+            justify-content: space-around;
+            font-size: 20px;
+        }
+        img{
+            height: 70px;
+            width:auto;
+        }
+        label{
+            color: whitesmoke;
+        }
+        h6{
+            text-align: center;
+            color: red;
+            font-size: 20px;
+        }
+
+            
+        }
     </style>
 </head>
 <body>
@@ -96,14 +179,14 @@
     {% if error %}
     <h2><label for="">city:</label>{{error}}</h2>
      <div class="a3">
-       <h3>temp: --------------- </h3>
+       <h3>temp: ------- </h3>
         <img src="https://openweathermap.org/img/wn/{{weather.icon}}@2x.png" alt=""> 
     </div>
     <div class="a4">
         <h4>date:----------</h4>
         <h5>discription:--------------</h5> 
     </div>
-    {% else %}
+    {% else %}  
     <h2><label for="">city:</label>{{weather.city}}</h2>
       
     <div class="a3">
@@ -112,7 +195,7 @@
     </div>
     <div class="a4">
         <h4>date:{{weather.time}}</h4>
-        <h5>discription:{{weather.discription}}</h5> 
+        <h5>description:{{weather.discription}}</h5> 
     </div>
     {% endif %}
 </div>
